@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{amsmath} % For advanced math formatting
 
-\title{Exercises - Lecture 1}
+\title{Spatial Statistics Exercises Lecture 1}
 \author{Tanja Bugajski}
 \date{\today}
 
@@ -10,11 +10,56 @@
 \maketitle
 
 \section*{Exercise 2}
-Consider a binomial process on a Borel set   
-
+Consider a binomial process on a Borel set $S\subseteq \mathbb{R}^d$ with $n$ points, where
+each point follows a pdf $f$. \\
+\(a\) Show that the intensity measure is given by
 \[
-P(x, y) = \lambda \exp(-\lambda \sqrt{x^2 + y^2})
+\mu(B)=n\int_B f(x) \text{d}x
 \]
 
-\end{document}
+\(b\)  Show that the void probability is given by
+\[
+v(B)=\left( 1-\int_B f(x) \text{d}x \right)^n
+\]
+for any bounded Borel set $S\subseteq \mathbb{R}^d$.
+\section*{Exercise 3}
+Why is it impossible for the binomial process to be stationary \textit{hint: think
+about if the distribution of a point in the process then would be welldefined?}
+\section*{4. Which of the following examples lead to the binomial process being isotropic:}
+\begin{enumerate}
+    \item[(a)] $f(x) = \frac{1}{|B(0, 1)|}$, where $S = B(0, 1)$ is a unit ball in $\mathbb{R}^d$ with the center at the origin and $|B(0, 1)| = \int_{B(0,1)} du$.
+    
+    \item[(b)] $f(x) = a^{-d}$ and $S$ is a $d$-dimensional box centered at the origin with side lengths $a > 0$.
+    
+    \item[(c)] $f(x)$ is the density of a $d$-dimensional normal distribution with mean vector 0 and covariance matrix $\sigma^2 I$, where $I$ is the identity matrix and $\sigma > 0$, and where $S = \mathbb{R}^d$.
+\end{enumerate}
 
+\section*{5. A small exercise in measures:}
+\begin{enumerate}
+    \item[(a)] Show that the intensity measure given by
+    \[
+    \mu(B) = \int_B \rho(x) \, dx
+    \]
+    for a non-negative function $\rho$ and $B \in \mathcal{B}$ is indeed a measure (more precisely, $\rho$ needs to be a so-called Borel function, which means that $\rho^{-1}(I)$ is a Borel set for any bounded interval $I$, but we don’t care about such measure theoretical details in this course).
+    
+    \item[(b)] On the other hand, argue why the void probability $v(B)$ for $B \in \mathcal{B}_0$ is not a measure on $S$. For instance, give a counter-example (hint: consider a binomial process).
+\end{enumerate}
+
+\section*{6. A creative exercise:}
+\begin{enumerate}
+    \item[(a)] Come up with your own example of a data type which is a point pattern.
+    
+    \item[(b)] Would you expect it to be clustered, regular, neither, or maybe some combination of the two?
+    
+    \item[(c)] Would you expect it to be homogeneous or inhomogeneous?
+    \item[] 
+    \item[(d)] Can you come up with some marks that could be associated with the point pattern?
+    
+    \item[(e)] Are there any covariates which might influence the point pattern?
+\end{enumerate}
+
+
+
+
+
+\end{document}

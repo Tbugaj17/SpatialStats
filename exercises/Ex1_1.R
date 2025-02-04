@@ -1,4 +1,4 @@
-# Introduction - (c) plot data from spatstat package
+# Introduction Exercise 1 - (c) plot data from spatstat package
 plot(swedishpines)
 plot(redwood)
 plot(cells)
