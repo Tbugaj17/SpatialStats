@@ -1,0 +1,12 @@
+# R-related files
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# Log and output files
+*.log
+*.csv
+
+# Temporary files
+*.swp
