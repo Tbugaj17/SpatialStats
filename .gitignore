@@ -10,3 +10,9 @@
 
 # Temporary files
 *.swp
+
+# LaTeX
+*.log
+*.fls
+*.fdb_latexmk
+*.aux
