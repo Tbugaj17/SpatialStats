@@ -23,8 +23,9 @@ plot(density_bronzefilter)
 plot(bei)
 plot(bei.extra)
 
-# Try the commands:
+# Try the commands: 
 names(bei.extra) #returns the names of the components within the object, in this case: "elev" "grad".
+
 par(mfrow=c(1,2)) #sets the layout for multiple plots in one figure.
 plot(bei.extra$elev) #creates a plot of the "elev" data from the bei.extra object.
 plot(bei,add=TRUE) #plots the bei spatial object, and the add=TRUE parameter ensures that the bei plot is added to the existing plot.

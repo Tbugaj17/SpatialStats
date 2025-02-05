@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{amsmath} % For advanced math formatting
+\usepackage{amsmath, amssymb} % For advanced math formatting
 
 \title{Spatial Statistics Exercises Lecture 1}
 \author{Tanja Bugajski}
@@ -16,12 +16,66 @@ each point follows a pdf $f$. \\
 \[
 \mu(B)=n\int_B f(x) \text{d}x
 \]
+\subsection*{(a) Intensity Measure $\mu(B)$}
+
+The intensity measure $\mu(B)$ of a point process represents the expected number of points in a Borel set $B \subseteq S$:
+
+\[
+    \mu(B) = \mathbb{E}[N(B)],
+\]
+
+where $N(B)$ is the number of points in $B$.
+
+\paragraph{Step 1: Probability of a Single Point Being in $B$}
+Each point in the binomial process is independently drawn from $S$ with pdf $f(x)$. The probability that a single point $X_i$ falls inside $B$ is:
+
+\[
+    P(X_i \in B) = \int_B f(x) dx.
+\]
+
+\paragraph{Step 2: Expected Number of Points in $B$}
+Since the binomial process consists of $n$ independent points, the number of points in $B$ follows a binomial distribution:
+
+\[
+    N(B) \sim \text{Bin}(n, p), \quad \text{where } p = \int_B f(x) dx.
+\]
+
+The expectation of a binomial random variable is:
+
+\[
+    \mathbb{E}[N(B)] = n p = n \int_B f(x) dx.
+\]
+Thus, the intensity measure is:
+\[
+    \mu(B) = n \int_B f(x) dx.
+\]
 
 \(b\)  Show that the void probability is given by
 \[
 v(B)=\left( 1-\int_B f(x) \text{d}x \right)^n
 \]
 for any bounded Borel set $S\subseteq \mathbb{R}^d$.
+\subsection*{(b) Void Probability $v(B)$}
+
+The void probability $v(B)$ is the probability that no points fall inside the Borel set $B$:
+
+\[
+    v(B) = P(N(B) = 0).
+\]
+
+\paragraph{Step 1: Using the Binomial Distribution}
+Since $N(B) \sim \text{Bin}(n, p)$, the probability of observing zero points in $B$ is given by the binomial probability mass function:
+
+\[
+    P(N(B) = 0) = \binom{n}{0} p^0 (1 - p)^n = (1 - p)^n.
+\]
+
+Substituting $p = \int_B f(x) dx$, we obtain:
+
+\[
+    v(B) = \left( 1 - \int_B f(x) dx \right)^n.
+\]
+
 \section*{Exercise 3}
 Why is it impossible for the binomial process to be stationary \textit{hint: think
 about if the distribution of a point in the process then would be welldefined?}
@@ -57,9 +111,5 @@ about if the distribution of a point in the process then would be welldefined?}
     
     \item[(e)] Are there any covariates which might influence the point pattern?
 \end{enumerate}
-
-
-
-
 
 \end{document}
