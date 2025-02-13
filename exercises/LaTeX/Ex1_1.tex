@@ -78,7 +78,15 @@ Substituting $p = \int_B f(x) dx$, we obtain:
 
 \section*{Exercise 3}
 Why is it impossible for the binomial process to be stationary \textit{hint: think
-about if the distribution of a point in the process then would be welldefined?}
+about if the distribution of a point in the process then would be welldefined?}\\
+
+A process is stationary if its statistical properties remain the same when shifted spatially. 
+For example, if you move the entire point pattern a certain distance in any direction, 
+the distribution of points should look the same.
+
+However, in a binomial process, the points are defined over a fixed and finite region. 
+Thus, if we shift the region, points may move outside the original boundary, altering the statistical properties of the process. 
+Which is the reason why the binomial process is not stationary.
 \section*{4. Which of the following examples lead to the binomial process being isotropic:}
 \begin{enumerate}
     \item[(a)] $f(x) = \frac{1}{|B(0, 1)|}$, where $S = B(0, 1)$ is a unit ball in $\mathbb{R}^d$ with the center at the origin and $|B(0, 1)| = \int_{B(0,1)} du$.
