@@ -75,11 +75,7 @@ Substituting $p = \int_B f(x) dx$, we obtain:
 \[
     v(B) = \left( 1 - \int_B f(x) dx \right)^n.
 \]
-
-\section*{Exercise 3}
-Why is it impossible for the binomial process to be stationary \textit{hint: think
-about if the distribution of a point in the process then would be welldefined?}\\
-
+\section*{3. Why is it impossible for the binomial process to be stationary?}
 A process is stationary if its statistical properties remain the same when shifted spatially. 
 For example, if you move the entire point pattern a certain distance in any direction, 
 the distribution of points should look the same.
@@ -113,6 +109,36 @@ This means the function must be invariant under rotations.
     
     \item[(b)] On the other hand, argue why the void probability $v(B)$ for $B \in \mathcal{B}_0$ is not a measure on $S$. For instance, give a counter-example (hint: consider a binomial process).
 \end{enumerate}
+\(a\) To show that $\mu(B)$ is a measure it needs to verify three conditions:\\
+1. Non-negativity: A measure must be non-negative for all measurable sets $\mathrm{B}$.\\
+Since $\rho(x)<0$ for all $x$, then
+\[ 
+    \mu(B) = \int_B \rho(x) \, dx \geq 0,
+\]
+Since integration preserves non-negativity.\\
+2. Null Empty Set: A measure must assign measure zero to the empty set, thus\\
+\[ 
+    \mu(\emptyset) = \int_{\emptyset} \rho(x) \, dx=0.
+\]
+Since integration over the empty set is always zero.\\
+3. Countable Additivity:
+For a countable Borel set $\{B_n\}_{n=1}^{\infty}$ then:
+\[
+\mu\left(\cup^{\infty}_{n=1}B_n\right)= \sum_{n=1}^{\infty}\mu(B_n)
+\]
+We check:
+\[
+\mu \left( \bigcup_{n=1}^{\infty} B_n \right) = \int_{\bigcup_{n=1}^{\infty} B_n} \rho(x) \,dx.
+\]
+Since integration is countably additive for disjoint sets, we can write:
+\[
+\int_{\bigcup_{n=1}^{\infty} B_n} \rho(x) \,dx = \sum_{n=1}^{\infty} \int_{B_n} \rho(x) \,dx.
+\]
+Thus,
+\[
+\mu \left( \bigcup_{n=1}^{\infty} B_n \right) = \sum_{n=1}^{\infty} \mu(B_n),
+\]
+which proves countable additivity.
 
 \section*{6. A creative exercise:}
 \begin{enumerate}
@@ -121,10 +147,15 @@ This means the function must be invariant under rotations.
     \item[(b)] Would you expect it to be clustered, regular, neither, or maybe some combination of the two?
     
     \item[(c)] Would you expect it to be homogeneous or inhomogeneous?
-    \item[] 
+    
     \item[(d)] Can you come up with some marks that could be associated with the point pattern?
     
     \item[(e)] Are there any covariates which might influence the point pattern?
 \end{enumerate}
-
+\(a\) Locations of weather stations or satellites providing temperature readings.\\
+\(b\) A combination of clustered in areas with high population and regular in other areas to ensure even geographic coverage.\\
+\(c\) A homogeneous point process would mean that measurement locations are evenly distributed across the globe, but this is not the case for temperature data. 
+Instead, the distribution of measurement locations varies in space, making it inhomogeneous.\\
+\(d\) Yes, e.g., location, temperature, season, humidity, time of measurement, population areas \(urban or remote\), sensor type and measurement errors.\\
+\(e\) Covariates like population density, infrastructure, and land cover play a major role in shaping where stations are located.
 \end{document}
