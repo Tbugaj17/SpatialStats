@@ -88,14 +88,21 @@ However, in a binomial process, the points are defined over a fixed and finite r
 Thus, if we shift the region, points may move outside the original boundary, altering the statistical properties of the process. 
 Which is the reason why the binomial process is not stationary.
 \section*{4. Which of the following examples lead to the binomial process being isotropic:}
+A function $f(x)$ is isotropic if for every orthogonal matrix $R \in O(d)$, where $R^T R=I$. We then have:
+\[ 
+f(Rx)=f(x), \quad \forall\  x\in \mathrm{R}^d.
+\]
+This means the function must be invariant under rotations.
 \begin{enumerate}
-    \item[(a)] $f(x) = \frac{1}{|B(0, 1)|}$, where $S = B(0, 1)$ is a unit ball in $\mathbb{R}^d$ with the center at the origin and $|B(0, 1)| = \int_{B(0,1)} du$.
+    \item[(a)] $f(x) = \frac{1}{|B(0, 1)|}$, where $S = B(0, 1)$ is a unit ball in $\mathbb{R}^d$ with the center at the origin and $|B(0, 1)| = \int_{B(0,1)} du$. 
     
     \item[(b)] $f(x) = a^{-d}$ and $S$ is a $d$-dimensional box centered at the origin with side lengths $a > 0$.
     
     \item[(c)] $f(x)$ is the density of a $d$-dimensional normal distribution with mean vector 0 and covariance matrix $\sigma^2 I$, where $I$ is the identity matrix and $\sigma > 0$, and where $S = \mathbb{R}^d$.
 \end{enumerate}
-
+\(a\) Since a ball is symmetric under rotation and $f(x)$ is uniform inside it, this function is isotropic.\\
+\(b\) The shape of the box breaks rotational symmetry. Thus, the function is not isotropic.\\
+\(c\) The function $f(x)$ is the normal distribution. It is rotationally invariant, i.e, the function is isotropic.
 \section*{5. A small exercise in measures:}
 \begin{enumerate}
     \item[(a)] Show that the intensity measure given by
