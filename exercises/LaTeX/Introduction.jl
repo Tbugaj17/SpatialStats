@@ -85,6 +85,8 @@ scatter(x, y, markersize=marks, alpha=0.6, legend=false, title="Marked Poisson P
 # 5) Extending to a Multivariate Marked Poisson Process: Extend the marks to a vector (e.g., assigning multiple attributes like magnitude, type, and time), we approach a multivariate marked point process.
 # Here, each point gets a two-dimensional mark (e.g., event magnitude and time of occurrence).
 
+using ColorTypes
+
 function multivariate_marked_poisson_process(lambda, mark_dists, region=(0,1,0,1))
     x_min, x_max, y_min, y_max = region
     area = (x_max - x_min) * (y_max - y_min)
@@ -104,5 +106,8 @@ end
 # Example: λ = 100, two marks: Normal(5,1) (magnitude) and Uniform(0,10) (time)
 x, y, (magnitudes, times) = multivariate_marked_poisson_process(100, [Normal(5, 1), Uniform(0, 10)])
 
-# Colour points by 'times' and size by 'magnitudes'
-scatter(x, y, markersize=magnitudes, c=times, alpha=0.7, legend=false, title="Multivariate Marked Poisson Process", color=:viridis, colorrange=(0, 10))
+# Use 'times' for the color and 'magnitudes' for the size
+scatter(x, y, markersize=magnitudes, color=times, alpha=0.7, 
+        legend=false, title="Multivariate Marked Poisson Process", 
+        colormap=:viridis, colorrange=(minimum(times), maximum(times)))
+
