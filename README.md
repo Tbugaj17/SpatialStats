@@ -14,7 +14,7 @@ Lecture 2: Poisson processes 1.
 - `exercises/` - R and LaTeX scripts for exercises and analysis  
   - `scripts/R/` - R scripts for data processing and analysis  
   - `scripts/LaTeX/` - LaTeX files for reports and documentation  
-- `results/` - Output files (pdf, graphs, tables, etc.)  
+- `notes/Julia/` - Julia scripts with personal notes and examples  
+- `results/` - Output files (PDFs, graphs, tables, etc.)  
 - `.gitignore` - Specifies files to be ignored by Git  
-- `README.md` - This file  
-
+- `README.md` - Project documentation  

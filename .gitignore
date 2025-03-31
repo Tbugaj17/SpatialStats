@@ -16,3 +16,15 @@
 *.fls
 *.fdb_latexmk
 *.aux
+
+# Ignore compiled files
+*.out
+*.pdf
+
+# Ignore Julia package environments
+.julia/
+manifest.toml
+project.toml
+
+
+
