@@ -1,0 +1,147 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+
+\begin{document}
+
+\title{Existence of the Poisson Process}
+\author{}
+\date{}
+\maketitle
+
+\section*{Definition of the Poisson Process}
+
+Let \( S \subseteq \mathbb{R}^d \) be a subset of \( \mathbb{R}^d \).  
+Define an intensity function \( \rho: S \to [0, \infty) \) and the corresponding intensity measure:
+
+\[
+\mu(B) = \int_B \rho(u) \, du, \quad \text{for } B \in \mathcal{B}.
+\]
+
+Assume that \( \mu(B) < \infty \) for all \( B \) in a suitable class \( \mathcal{B}_0 \) of measurable subsets of \( S \).  
+
+A point process \( X \) is a \textbf{Poisson process} on \( S \) with \textbf{intensity measure} \( \mu \) and \textbf{intensity function} \( \rho \) if, for any region \( B \subseteq S \) with \( \mu(B) < \infty \):
+
+\begin{enumerate}
+    \item The number of points in \( B \), denoted \( N(B) \), follows a Poisson distribution with mean \( \mu(B) \):
+    \[
+    N(B) \sim \text{Poisson}(\mu(B)).
+    \]
+    \item Given that \( N(B) = n \), the points of \( X \cap B \) form an independent binomial point process with \( n \) points, where each point is distributed according to the probability density function:
+    \[
+    f(u) = \frac{\rho(u)}{\mu(B)}, \quad u \in B.
+    \]
+\end{enumerate}
+
+We denote this process as:
+\[
+X \sim \text{Poisson}(S, \rho).
+\]
+
+\section*{Existence of the Poisson Process}
+
+A Poisson process \( N(t) \) on \( \mathbb{R}_+ \) (time) is defined by the following properties:
+
+\begin{enumerate}
+    \item \( N(0) = 0 \).
+    \item \textbf{Independent increments}: The number of events in disjoint intervals are independent.
+    \item \textbf{Poisson-distributed counts}: The number of events in any interval \( (t, t+h] \) follows
+    \[
+    N(t+h) - N(t) \sim \text{Poisson}(\lambda h).
+    \]
+    \item \textbf{No multiple events in an infinitesimal interval}:
+    \[
+    \mathbb{P}(N(t+h) - N(t) \geq 2) = o(h), \quad h \to 0.
+    \]
+\end{enumerate}
+
+To show that such a process exists, we construct it explicitly using inter-arrival times.
+
+\subsection*{Step 1: Constructing Arrival Times}
+
+Define a sequence of independent, exponentially distributed inter-arrival times:
+
+\[
+X_i \sim \text{Exp}(\lambda), \quad \text{so that} \quad \mathbb{P}(X_i > x) = e^{-\lambda x}.
+\]
+
+Define the event times (arrival times) as their cumulative sums:
+
+\[
+T_n = X_1 + X_2 + \dots + X_n.
+\]
+
+This sequence represents the times at which events occur.
+
+\subsection*{Step 2: Defining the Counting Process}
+
+The counting process is then defined as:
+
+\[
+N(t) = \max \{n \geq 0 \mid T_n \leq t\}.
+\]
+
+That is, \( N(t) \) counts how many arrivals have occurred by time \( t \).
+
+\subsection*{Step 3: Verifying the Poisson Properties}
+
+\begin{itemize}
+    \item \textbf{Independent increments}: Since inter-arrival times \( X_i \) are independent, the number of arrivals in any interval depends only on inter-arrival times in that interval, ensuring independence.
+    \item \textbf{Poisson-distributed counts}: It can be shown that
+    \[
+    \mathbb{P}(N(t) = k) = \frac{(\lambda t)^k e^{-\lambda t}}{k!},
+    \]
+    proving that \( N(t) \) follows a Poisson distribution.
+    \item \textbf{No multiple events in small intervals}: Since \( X_i \) are exponentially distributed, the probability of two arrivals in a very short interval \( h \) is \( o(h) \), as required.
+\end{itemize}
+
+Thus, we have constructed a process satisfying the Poisson process properties, proving its existence.
+
+\section*{Why is \( N(0) = 0 \)?}
+
+By definition, the Poisson process \( N(t) \) counts the number of arrivals up to time \( t \):
+
+\[
+N(t) = \max \{n \geq 0 \mid T_n \leq t\}.
+\]
+
+where \( T_n \) are the arrival times, given by the cumulative sums of independent exponential inter-arrival times:
+
+\[
+T_n = X_1 + X_2 + \dots + X_n, \quad X_i \sim \text{Exp}(\lambda).
+\]
+
+Now, consider \( t = 0 \):
+
+\subsection*{1. First Event Occurs at \( T_1 \)}
+
+- The first event occurs at \( T_1 = X_1 \), where \( X_1 \sim \text{Exp}(\lambda) \).
+- Since an exponential random variable is always positive (\( X_1 > 0 \) almost surely), it follows that:
+
+\[
+T_1 > 0.
+\]
+
+- This means that at \( t = 0 \), no event has yet occurred.
+
+\subsection*{2. Counting Process at \( t = 0 \)}
+
+- Since \( N(t) \) counts the number of arrivals up to \( t \), we check:
+
+\[
+N(0) = \max \{n \geq 0 \mid T_n \leq 0\}.
+\]
+
+- Because \( T_1 > 0 \), there are no indices \( n \) for which \( T_n \leq 0 \).
+- Therefore, the maximum count is \( 0 \), so:
+
+\[
+N(0) = 0.
+\]
+
+Thus, by construction, the Poisson process always starts at zero:
+
+\[
+N(0) = 0.
+\]
+
+\end{document}

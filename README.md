@@ -16,7 +16,7 @@ Lecture 2: Poisson processes 1.
   - `scripts/LaTeX/` - LaTeX files for reports and documentation  
 - `notes/`  - Personal notes and examples in Julia and LaTeX
   - `Julia/` - Julia scripts with personal notes and examples
-  - `LaTeX`  - Personal notes in LaTeX  
+  - `LaTeX/`  - Personal notes in LaTeX  
 - `results/` - Output files (PDFs, graphs, tables, etc.)  
 - `.gitignore` - Specifies files to be ignored by Git  
 - `README.md` - Project documentation  

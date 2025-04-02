@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Simulation of Poisson Processes}
+
+\section*{Homogeneous Poisson Process Simulation on $[0, r]$}
+
+In the homogeneous case, the intensity function \( \rho > 0 \) is constant.
+
+\begin{enumerate}
+    \item For \( i = 1, 2, \dots \) until \( x_i > r \), do the following:
+    \begin{enumerate}
+        \item Generate inter-arrival time \( t_i \sim \text{Exp}(\rho) \) using the inverse transform sampling:
+        \[
+        t_i = -\frac{\ln(u_i)}{\rho}, \quad u_i \sim \text{Unif}(0, 1).
+        \]
+        \item Let \( x_i = \sum_{j=1}^i t_j \) and set \( n = i - 1 \).
+    \end{enumerate}
+    \item Output the set of event locations \( X = \{x_1, x_2, \dots, x_n\} \).
+\end{enumerate}
+
+\section*{Inhomogeneous Poisson Process Simulation on $[0, r]$}
+
+In the inhomogeneous case, the intensity function \( \rho(x) > 0 \) varies with position \( x \).
+
+\begin{enumerate}
+    \item For \( i = 1, 2, \dots \) until \( x_i > r \), do the following:
+    \begin{enumerate}
+        \item Generate inter-arrival time \( t_i \sim \text{Exp}(1) \) using the inverse transform sampling:
+        \[
+        t_i = -\ln(u_i), \quad u_i \sim \text{Unif}(0, 1).
+        \]
+        \item Let the cumulative intensity function be:
+        \[
+        H(x) = \int_0^x \rho(u) \, du.
+        \]
+        The event location \( x_i \) is then given by the inverse:
+        \[
+        x_i = H^{-1} \left( \sum_{j=1}^i t_j \right).
+        \]
+        \item Set \( n = i - 1 \).
+    \end{enumerate}
+    \item Output the set of event locations \( X = \{x_1, x_2, \dots, x_n\} \).
+\end{enumerate}
+
+In the homogeneous case, the process has constant rate $\rho$, and the event times are simply the cumulative sums of exponentially distributed inter-arrival times with rate $\rho$.
+
+In the inhomogeneous case, the event times are still generated from exponential distributions, but the event locations are mapped through an inverse function $H^{-1}$, which is determined by the cumulative intensity function $H(x)$. 
+The intensity function $\rho(x)$ varies with $x$, and this variation is accounted for by the mapping.
+\end{document}
