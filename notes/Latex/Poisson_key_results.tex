@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+
+\begin{document}
+
+\textbf{Theorem (Existence of the Poisson Process):}  
+The Poisson process $\text{Po}(S, \rho)$ exists.
+
+\bigskip
+
+\textbf{Corollary (Uniqueness of the Poisson Distribution):}  
+The distribution of a Poisson process $\text{Po}(S, \rho)$ is completely determined by the following properties:
+1. For any bounded Borel set $B \subset S$, the number of points in $B$ follows a Poisson distribution with mean $\int_B \rho(s) ds$.
+2. The numbers of points in disjoint sets are independent.
+
+\bigskip
+
+\textbf{Theorem (Restriction of a Poisson Process):}  
+Let $X \sim \text{Po}(S, \rho)$. The restriction of $X$ to a subset $B \subset S$, denoted $X \cap B$, is again a Poisson process with intensity $\rho$ restricted to $B$.
+
+\bigskip
+
+\textbf{Theorem (Superposition of Poisson Processes):}  
+The union of independent Poisson processes in countably many disjoint domains is again a Poisson process.
+
+\bigskip
+
+\textbf{Theorem (Independent Scattering Property):}  
+If $B_1, B_2, \dots$ are disjoint subsets of $S$, then the restricted processes $X_{B_1}, X_{B_2}, \dots$ are independent Poisson processes.
+
+\bigskip
+
+\textbf{Theorem (Characterisation of the Poisson Process):}  
+The Poisson process is the only independently scattered point process.
+
+\end{document}
